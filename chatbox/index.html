@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatbox">
+    <head>
+       <meta charset="utf-8" />
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Chat với người lạ</title>
+       <script>
+           document.write('<base href="' + document.location + '" />');
+       </script>
+	<!-- Le styles -->
+	   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	   <link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
+<body ng-controller="ChatController" ng-cloak>
+<!-- Co 3 bien anh xa tu ChatController gom useronline, messages, loading
+    va 1 ham la sendMessage()
+ -->
+    <div id="thumb" ng-show="tooltip" ng-click="toggle()">
+        <div id="content" ng-click="$event.stopPropagation()">
+            <img ng-show="imagesrc" id="ithumb" ng-src="{{'upload/'+imagesrc}}" />
+            <video ng-show="videosrc" id="vthumb" ng-src="{{'upload/'+videosrc}}" controls autoplay>
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+<div class="chatbox">
+	<div class="container x">
+	<header><div data-id="heollo co ba"></div>
+            <h1>
+                Chat với người lạ
+                <small class="online-users" title="có {{useronline}} người đang chat">{{useronline}}</small>
+            </h1>
+            <small>
+                Không ai biết bạn là ai. Hãy tự tin thể hiện cá tính của mình
+                <img src="img/smile.png" />
+                <img src="img/smile.png" />
+            </small>
+    </header>
+
+    <section class="row">
+        <div class="messages">
+            <div ng-show="loading" class="info">Đang chờ người lạ...<img src="img/loading.gif" alt="loading" /></div> 
+            <div ng-message ng-model="chat"></div>
+        </div>
+
+        <form class="in" ng-submit="sendMessage()">
+            <div class="input-group input-group-lg inner-addon right-addon">
+                <input type="file" read-file ng-disabled="loading">
+                <i class="glyphicon glyphicon-folder-open"></i>
+                <input class="form-control"
+                    ng-model="message"
+                    autofocus
+                    ng-disabled="loading"
+                	maxlength="100">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" ng-disabled="loading">Chat</button>
+                </span>
+            </div>
+        </form>
+    </section>
+
+	<footer></footer>
+    
+</div>
+        <!-- Scripts -->
+        <script type="text/javascript" src="js/angular.min.js"></script>
+        <script type="text/javascript" src="js/encoder.js"></script>
+        <script src="js/main.js"></script>
+</body>
+</html>
+

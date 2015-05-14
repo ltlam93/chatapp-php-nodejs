@@ -1,0 +1,200 @@
+.online-users {
+  background: url('../img/users.png') no-repeat;
+  padding-left: 20px;
+  height: 18px;
+  display: inline-block;
+  color: #888;
+  font-size: 14px;
+  font-weight: bold;
+  vertical-align: middle;
+  padding-top: 2px;
+}
+
+.chatbox {
+  position: absolute;
+  top: 40px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+.chatbox .x {
+  height: 100%;
+  position: relative;
+}
+.chatbox .x header {
+  padding: 5px 0;
+}
+.chatbox .x header h1 {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.chatbox .x header small {
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.chatbox .x .messages {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 70px;
+  bottom: 45px;
+  padding: 5px;
+  padding-bottom: 10px;
+  overflow: auto;
+  background-color: #eee;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.chatbox .x .messages .you {
+  font-weight: bold;
+  color: #5cb85c;
+}
+.chatbox .x .messages .stranger {
+  font-weight: bold;
+  color: #d9534f;
+}
+.chatbox .x .messages .mod {
+  font-weight: bold;
+  color: #8e00fe;
+}
+.chatbox .x .messages .admin {
+  font-weight: bold;
+  color: red;
+}
+.chatbox .x .messages .info {
+  font-weight: bold;
+  color: #31708f;
+}
+.chatbox .x .messages .err {
+  font-weight: bold;
+  color: #a94442;
+}
+.chatbox .x .noti {
+  display: none;
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 30px;
+  height: 50px;
+  padding: 5px;
+}
+.chatbox .x .in {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+}
+.chatbox .x .in .input-group {
+  position: relative;
+  display: table;
+  border-collapse: separate;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.chatbox .x .in .input-group input,
+.chatbox .x .in .input-group button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 13px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 80px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.chatbox .x .in .input-group input[type="file"]{
+  height: 100%;
+    position: absolute;
+    top: 0;
+    right: 80px;
+    width: 30px;
+    -moz-opacity: 0;
+    filter: alpha(opacity: 0);
+    opacity: 0;
+    cursor: pointer;
+}
+
+.chatbox .x i{
+  cursor: pointer;
+}
+
+.image img{
+  width: 400px;
+  height: 400px;
+}
+
+/* end thumbs*/
+
+#thumb{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.1);
+  display: block;
+  z-index: 1000;
+}
+
+#thumb #content{
+  opacity: 1;
+  margin: 0 auto;
+  height: 50%;
+  width: 50%;
+  margin-top: 100px;
+  text-align: center;
+  z-index: 10000;
+  border: 10px solid #fff;
+  cursor: pointer;
+}
+
+#thumb #content #ithumb{
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+#thumb #content #vthumb{
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-color: #000;
+}
+
+
+.gender {
+  width: 15px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.gender.f {
+  background: url(../img/gender.png) 0px 0px no-repeat;
+}
+.gender.m {
+  background: url(../img/gender.png) -15px 0px no-repeat;
+}

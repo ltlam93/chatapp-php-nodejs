@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="chatbox" ng-cloak>
+    <head>
+       <meta charset="utf-8" />
+	   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title ng-bind="room.name"></title>
+       <script>
+           document.write('<base href="' + document.location + '" />');
+       </script>
+        <script type="text/javascript" src="js/angular.min.js"></script>
+	<!-- Le styles -->
+	   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	   <link rel="stylesheet" type="text/css" href="css/main2.css">
+    </head>
+<body ng-controller="ChatController" ng-cloak>
+<!-- Co 3 bien anh xa tu ChatController gom useronline, messages, loading
+    va 1 ham la sendMessage()
+ -->
+    <div id="thumb" ng-show="tooltip" ng-click="toggle()">
+        <div id="content" ng-click="$event.stopPropagation()">
+            <img ng-show="imagesrc" id="ithumb" ng-src="{{'/upload/'+imagesrc}}" />
+            <video ng-show="videosrc" id="vthumb" ng-src="{{'/upload/'+videosrc}}" controls autoplay>
+            Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <div id="athumb" ng-show="toggleLogin||toggleRegister">
+        <div id="acontent" ng-click="$event.stopPropagation()">
+            <form>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input autofocus type="text" ng-model="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" ng-model="password" class="form-control">
+                </div>
+                <button class="btn btn-default" ng-show="toggleLogin" ng-click="login(username, password)">Login</button>
+                <button class="btn btn-default" ng-show="toggleRegister" ng-click="register(username,password)">Register</button>
+            </form>
+        </div>
+    </div>
+
+<div class="chatbox">
+	<div class="container x">
+	<header>
+        <div class="dropdown" id="avatar">
+            <button id="drop" class="btn btn-default dropdown-toggle">{{username}}
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li ng-show="username"><a ng-click="logout()" href="#logout">Logout</a></li>
+                <li ng-hide="username"><a ng-click="toggleLogin=true" href="#login">Login</a></li>
+                <li ng-hide="username"><a ng-click="toggleRegister=true" href="#register">Register</a></li>
+            </ul>
+        </div>
+            
+        <h1>
+            {{room.name}}
+            <small class="online-users" title="có {{room.members}} người đang chat">{{room.members}}</small>
+        </h1>
+    </header>
+
+    <section class="row">
+        <div class="messages">
+            <div ng-message ng-model="chat"></div>
+        </div>
+
+        <form class="in" ng-submit="sendMessage()">
+            <div class="input-group input-group-lg inner-addon right-addon">
+                <input type="file" read-file ng-disabled="!username">
+                <i class="glyphicon glyphicon-folder-open"></i>
+                <input class="form-control"
+                    ng-model="message"
+                    autofocus
+                    ng-disabled="!username"
+                	maxlength="100">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" ng-disabled="!username">Chat</button>
+                </span>
+            </div>
+        </form>
+    </section>
+
+	<footer></footer>
+    
+</div>
+        <!-- Scripts -->
+        <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+        <script src="js/main.js"></script>
+</body>
+</html>
+
