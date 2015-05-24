@@ -145,7 +145,7 @@ app.controller('ChatController', function($scope, $http, $timeout, $log, message
 
 	function leaveChat(){
 		checkFirstVisit();
-		return;
+		return 'Are you sure you want to leave?';
 	};
 	window.onbeforeunload= leaveChat;
 
@@ -154,14 +154,14 @@ app.controller('ChatController', function($scope, $http, $timeout, $log, message
 			name = 'useronline=';
 
 		if(c.indexOf(name)==-1) {
-    		document.cookie = name+ userId;
+    		     document.cookie = name+ userId;
 		}else {
-    		// not first visit
-    		var olduseronline= c.substring(name.length,c.length);
-    		// logout
-    		$http.get('leaveChat.php?userId='+ olduseronline).success(function(){
+    		     // not first visit
+    		     var olduseronline= c.substring(name.length,c.length);
+    		     // logout
+    		     $http.get('leaveChat.php?userId='+ olduseronline).success(function(){
     			document.cookie = name+ userId;
-    		});
+    		     });
 		}
 	}
 
