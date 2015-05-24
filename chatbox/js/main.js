@@ -137,7 +137,7 @@ app.controller('ChatController', function($scope, $http, $timeout, $log, message
 	}
 
 	function getNumberOfOnlineUsers(){
-		$http.get('getNumberOfOnlineUsers.php').success(function(data){
+		$http.get('getTotalOnlineUsers.php').success(function(data){
 			$scope.useronline= data;
 		});
 		$timeout(getNumberOfOnlineUsers, 1000);
