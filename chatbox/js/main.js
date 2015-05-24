@@ -94,7 +94,7 @@ app.controller('ChatController', function($scope, $http, $timeout, $log, message
 		// login
 		startChat();
 		// lay so nguoi online
-		getNumberOfOnlineUsers();
+		getTotalOnlineUsers();
 	})();
 
 	function startChat(){
